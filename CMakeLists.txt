@@ -3,4 +3,4 @@ project(CompsciSpring2019)
 
 set(CMAKE_CXX_STANDARD 17)
 
-add_executable(CompsciSpring2019 src/main.cpp)
+add_executable(LabExercise0 src/Labs/LabExercise0/LabExercise0.cpp src/Labs/LabExercise0/LabExercise0.h)
