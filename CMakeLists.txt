@@ -7,3 +7,4 @@ add_executable(LabExercise0 src/Labs/LabExercise0/LabExercise0.cpp src/Labs/LabE
 add_executable(Exercise1-CodeAlignment src/Exercises/Exercise1-CodeAlignment.cpp)
 add_executable(Exercise2-CodeAlignment src/Exercises/Exercise2-CodeAlignment.cpp)
 add_executable(Exercise3-Console src/Exercises/Exercise3-Console.cpp)
+add_executable(Exercise4-File src/Exercises/Exercise4-File.cpp)
