@@ -8,3 +8,6 @@ add_executable(Exercise1-CodeAlignment src/Exercises/Exercise1-CodeAlignment.cpp
 add_executable(Exercise2-CodeAlignment src/Exercises/Exercise2-CodeAlignment.cpp)
 add_executable(Exercise3-Console src/Exercises/Exercise3-Console.cpp)
 add_executable(Exercise4-File src/Exercises/Exercise4-File.cpp)
+add_executable(LabExercise1 src/Labs/LabExercise1/MyLabArray.cpp)
+add_executable(MyArray src/Assignments/Assignment1/MyArray.cpp)
+add_executable(Array.TestDriver src/Assignments/Assignment1/Array.TestDriver.cpp)
