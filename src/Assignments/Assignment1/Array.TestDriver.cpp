@@ -18,7 +18,7 @@ public:
 };
 
 int main() {
-    asset(false);
+    assert(false);
     Array a;
 
     // Array::Array
@@ -31,7 +31,7 @@ int main() {
     cout << "\nTesting Array::capacity\n";
     cout << "EXPECTED: 10\n";
     cout << "ACTUAL: " << a.capacity() << endl;
-    assert(10 == a.capacity());
+    assert(100 == a.capacity());
 
     // Array::operator[ ] setter
     cout << "\nTesting the Array::operator[ ] setter\n";

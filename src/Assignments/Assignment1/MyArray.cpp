@@ -27,7 +27,6 @@ int main() {
     do {
         cout << "Input an index and a value [Q to quit]: ";
         getline(cin, input);
-        cout << endl;
         if (tolower(input.at(0)) != 'q') {
             stringstream(input) >> index >> value;
             if ((index >= 0) && (index <= 99)) {
@@ -50,7 +49,6 @@ int main() {
     do {
         cout << "Input an index for me to look up [Q to quit]: ";
         getline(cin, input);
-        cout << endl;
         if (tolower(input.at(0)) != 'q') {
             stringstream(input) >> index;
             if (a[index] != 0) {
