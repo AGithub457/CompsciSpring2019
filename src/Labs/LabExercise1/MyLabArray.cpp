@@ -2,7 +2,6 @@
 // Programmer's ID: 1612964
 #include <iostream>
 #include <sstream>
-#include <string>
 
 using namespace std;
 

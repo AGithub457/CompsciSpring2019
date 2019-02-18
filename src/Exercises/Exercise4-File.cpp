@@ -11,7 +11,7 @@ int main() {
 
     fout << "Name\tAge\tGPA" << endl; // column headings
     fout << "Armand\t20\t3.742" << endl;
-    
+
     fout.close();
 
     return 0;

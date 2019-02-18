@@ -22,22 +22,20 @@ template<typename V, int CAP>
 Array<V, CAP>::Array() {
     dummy = V();
 
-    for(int i = 0; i < CAP; i++) {
+    for (int i = 0; i < CAP; i++) {
         values[i] = dummy;
     }
 }
 
-template <typename V, int CAP>
-V& Array<V, CAP>::operator[ ](int index)
-{
+template<typename V, int CAP>
+V &Array<V, CAP>::operator[](int index) {
     if (index < 0) return dummy;
     if (index >= CAP) return dummy;
     return values[index];
 }
 
-template <typename V, int CAP>
-V Array<V, CAP>::operator[ ](int index) const
-{
+template<typename V, int CAP>
+V Array<V, CAP>::operator[](int index) const {
     if (index < 0) return dummy;
     if (index >= CAP) return dummy;
     return values[index];

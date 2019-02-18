@@ -3,7 +3,6 @@
 
 
 #include <iostream>
-#include <string>
 
 using namespace std;
 
@@ -13,7 +12,7 @@ int main() {
     cout << "1 + 1 = ";
     getline(cin, input);
 
-    if(input == "2") {
+    if (input == "2") {
         cout << "Correct!";
     } else {
         cout << "Incorrect :(";

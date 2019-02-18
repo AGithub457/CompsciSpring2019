@@ -2,6 +2,7 @@
 // Programmer's ID: 1612964
 
 #include <iostream>
+
 using namespace std;
 
 #include <cassert>
@@ -13,8 +14,8 @@ class Array {
 public:
     Array();
     int capacity() const { return 100; };
-    int operator[ ](int) const;
-    int& operator[ ](int);
+    int operator[](int) const;
+    int &operator[](int);
 };
 
 int main() {
@@ -77,13 +78,13 @@ Array::Array() {
     }
 };
 
-int& Array::operator[ ](int index) {
+int &Array::operator[](int index) {
     if (index < 0) return dummy;
     if (index >= 100) return dummy;
     return values[index];
 }
 
-int Array::operator[ ](int index) const {
+int Array::operator[](int index) const {
     if (index < 0) return 0;
     if (index >= 100) return 0;
     return values[index];

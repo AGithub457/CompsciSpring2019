@@ -14,9 +14,7 @@ public:
     Array();
 
     int capacity() const { return 100; };
-
     int operator[](int) const;
-
     int &operator[](int);
 };
 

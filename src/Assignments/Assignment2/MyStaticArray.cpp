@@ -24,8 +24,8 @@ int main() {
         }
     } while (input != "q");
 
-    for(int i = 0; i < 100; i++) {
-        if(flag[i]) {
+    for (int i = 0; i < 100; i++) {
+        if (flag[i]) {
             count++;
         }
     }
