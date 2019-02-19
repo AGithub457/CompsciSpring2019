@@ -4,7 +4,6 @@
 #ifndef COMPSCISPRING2019_STATICARRAY_H
 #define COMPSCISPRING2019_STATICARRAY_H
 
-
 template<typename V, int CAP>
 class Array {
     V values[CAP];
@@ -40,6 +39,5 @@ V Array<V, CAP>::operator[](int index) const {
     if (index >= CAP) return dummy;
     return values[index];
 }
-
 
 #endif //COMPSCISPRING2019_STATICARRAY_H
