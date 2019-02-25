@@ -5,12 +5,12 @@
 #define COMPSCISPRING2019_STATICARRAY_H
 
 template<typename V, int CAP>
-class Array {
+class StaticArray {
     V values[CAP];
     V dummy;
 
 public:
-    Array();
+    StaticArray();
 
     int capacity() const { return CAP; }
     V operator[](int) const;
@@ -18,7 +18,7 @@ public:
 };
 
 template<typename V, int CAP>
-Array<V, CAP>::Array() {
+StaticArray<V, CAP>::StaticArray() {
     dummy = V();
 
     for (int i = 0; i < CAP; i++) {
@@ -27,14 +27,14 @@ Array<V, CAP>::Array() {
 }
 
 template<typename V, int CAP>
-V &Array<V, CAP>::operator[](int index) {
+V &StaticArray<V, CAP>::operator[](int index) {
     if (index < 0) return dummy;
     if (index >= CAP) return dummy;
     return values[index];
 }
 
 template<typename V, int CAP>
-V Array<V, CAP>::operator[](int index) const {
+V StaticArray<V, CAP>::operator[](int index) const {
     if (index < 0) return dummy;
     if (index >= CAP) return dummy;
     return values[index];
