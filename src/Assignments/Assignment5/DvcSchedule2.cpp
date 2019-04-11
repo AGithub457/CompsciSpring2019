@@ -10,11 +10,10 @@ using namespace std;
 
 #include "DynamicArray.h"
 
-struct Term
-{
+struct Term {
     string term;
-    int indexUniqueSections;
-    DynamicArray<string> sectionArr;
+    int numUniqueSections;
+    DynamicArray<string> arrUniqueSections;
 };
 
 int main() {
@@ -25,21 +24,20 @@ int main() {
     ifstream fin;
     string row;
     string semester, year, term, section, course, courseCode;
-    int indexUniqueTerms = 0;
-    DynamicArray<Term> termArr;
-    DynamicArray<string> courseCodeArr;
-    DynamicArray<int> courseCodeCount;
-    int indexUniqueCode = 0;
+
+    DynamicArray<Term> arrUniqueTerms;
+    int numUniqueTerms = 0;
+
+    DynamicArray<string> arrUniqueCourseCodes;
+    DynamicArray<int> arrUniqueCourseCodeCounts;
+    int numUniqueCourseCode = 0;
 
     int duplicate = 0;
-
-    int counter = 0;
 
     fin.open("dvc-schedule.txt");
     if (!fin) {
         throw "File not found";
     }
-
     getline(fin, row);
     while (getline(fin, row)) {
         stringstream(row) >> semester >> year >> section >> course;
@@ -47,68 +45,68 @@ int main() {
         stringstream ss(course);
         getline(ss, courseCode, '-');
 
-        int i;
-        for(i = 0; i < termArr.capacity(); i++) {
-            if (termArr[i].term == term) {
+
+        bool foundTerm = false;
+        int i = 0;
+        for(; i < numUniqueTerms; i++) {
+            if(arrUniqueTerms[i].term == term) {
+                foundTerm = true;
                 break;
             }
         }
 
-        if(!(i < termArr.capacity())) {
-            termArr[indexUniqueTerms].term = term;
-            i = indexUniqueTerms;
-            indexUniqueTerms++;
+        if(!foundTerm) {
+            arrUniqueTerms[i].term = term;
+            numUniqueTerms++;
         }
 
-        int j;
-        for(j = 0; j < termArr[i].sectionArr.capacity(); j++) {
-            if(termArr[i].sectionArr[j] == section) {
-                duplicate++;
+        bool foundSection = false;
+        int j = 0;
+        for(; j < arrUniqueTerms[i].numUniqueSections; j++) {
+            if(arrUniqueTerms[i].arrUniqueSections[j] == section) {
+                foundSection = true;
                 break;
             }
         }
 
-        if(!(j < termArr[i].sectionArr.capacity())) {
-            termArr[i].sectionArr[j] = section;
-            j = termArr[i].indexUniqueSections;
-            termArr[i].indexUniqueSections++;
-        }
+        if(!foundSection) {
+            arrUniqueTerms[i].arrUniqueSections[j] = section;
+            arrUniqueTerms[i].numUniqueSections++;
 
-        int k;
-        for(k = 0; k < courseCodeArr.capacity(); k++) {
-            if(courseCodeArr[k] == courseCode) {
-                break;
+            bool foundCourseCode = false;
+            int k = 0;
+            for(; k < numUniqueCourseCode; k++) {
+                if(arrUniqueCourseCodes[k] == courseCode) {
+                    foundCourseCode = true;
+                    break;
+                }
             }
-        }
 
-        if(k < courseCodeArr.capacity()) {
-            courseCodeCount[k]++;
+            if(!foundCourseCode) {
+                arrUniqueCourseCodes[k] = courseCode;
+                numUniqueCourseCode++;
+            }
+
+            arrUniqueCourseCodeCounts[k]++;
         } else {
-            courseCodeArr[indexUniqueCode] = courseCode;
-            courseCodeCount[indexUniqueCode]++;
-            indexUniqueCode++;
-        }
-
-        counter++;
-        if(counter % 200 == 0) {
-            cout << '.'; cout.flush();
+            duplicate++;
         }
     }
 
     cout << endl;
     cout << "DUPLICATES: " << duplicate << endl << endl;
 
-    for (int i = 0; i < indexUniqueCode; i++) {
-        for (int j = i + 1; j < indexUniqueCode; j++) {
-            if (courseCodeArr[j] < courseCodeArr[i]) {
-                swap(courseCodeArr[i], courseCodeArr[j]);
-                swap(courseCodeCount[i], courseCodeCount[j]);
+    for (int i = 0; i < numUniqueCourseCode; i++) {
+        for (int j = i + 1; j < numUniqueCourseCode; j++) {
+            if (arrUniqueCourseCodes[j] < arrUniqueCourseCodes[i]) {
+                swap(arrUniqueCourseCodes[i], arrUniqueCourseCodes[j]);
+                swap(arrUniqueCourseCodeCounts[i], arrUniqueCourseCodeCounts[j]);
             }
         }
     }
 
-    for (int i = 0; i < indexUniqueCode; i++) {
-        cout << courseCodeArr[i] << ", " << courseCodeCount[i] << " sections" << endl;
+    for (int i = 0; i < numUniqueCourseCode; i++) {
+        cout << arrUniqueCourseCodes[i] << ", " << arrUniqueCourseCodeCounts[i] << " sections" << endl;
     }
     return 0;
 }

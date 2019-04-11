@@ -15,5 +15,5 @@ add_executable(A2-MyStaticArray src/Assignments/Assignment2/MyStaticArray.cpp sr
 add_executable(A2-StaticArray.TestDriver src/Assignments/Assignment2/StaticArray.TestDriver.cpp src/Assignments/Assignment2/StaticArray.h)
 add_executable(A3-MyDynamicArray src/Assignments/Assignment3/MyDynamicArray.cpp src/Assignments/Assignment3/DynamicArray.h)
 add_executable(A3-DynamicArray.TestDriver src/Assignments/Assignment3/DynamicArray.TestDriver.cpp src/Assignments/Assignment3/DynamicArray.h)
-add_executable(A4-DvcSchedule1 src/Assignments/Assignment4/DvcSchedule1.cpp src/Assignments/Assignment4/DynamicArray.h src/Assignments/Assignment4/dvc-schedule.txt)
-add_executable(A5-DvcSchedule2 src/Assignments/Assignment5/DvcSchedule2.cpp)
+add_executable(A4-DvcSchedule1 src/Assignments/Assignment4/DvcSchedule1.cpp src/Assignments/Assignment4/DynamicArray.h)
+add_executable(A5-DvcSchedule2 src/Assignments/Assignment5/DvcSchedule2.cpp src/Assignments/Assignment5/DynamicArray.h)

@@ -4,8 +4,6 @@
 #ifndef COMPSCISPRING2019_DYNAMICARRAY_H
 #define COMPSCISPRING2019_DYNAMICARRAY_H
 
-#include <algorithm>
-
 template<typename V>
 class DynamicArray {
     V *values;
@@ -38,7 +36,7 @@ DynamicArray<V>::DynamicArray(int cap) {
 template<typename V>
 void DynamicArray<V>::capacity(int cap) {
     V *temp = new V[cap];
-    int limit = min(cap, this->cap);
+    int limit = this->cap > cap ? cap : this->cap;
 
     for (int i = 0; i < limit; i++) {
         temp[i] = values[i];
@@ -54,15 +52,20 @@ void DynamicArray<V>::capacity(int cap) {
 
 template<typename V>
 V &DynamicArray<V>::operator[](int index) {
-    if (index < 0) return dummy;
-    if (index >= cap) capacity(2 * index);
+    if (index < 0) {
+        return dummy;
+    }
+    if (index >= cap) {
+        capacity(2 * index);
+    }
     return values[index];
 }
 
 template<typename V>
 V DynamicArray<V>::operator[](int index) const {
-    if (index < 0) return dummy;
-    if (index >= cap) return dummy;
+    if ((index < 0) || (index >= cap)) {
+        return dummy;
+    }
     return values[index];
 }
 
@@ -82,6 +85,7 @@ DynamicArray<V> &DynamicArray<V>::operator=(const DynamicArray<V> &original) {
         delete[] values;
 
         cap = original.cap;
+        dummy = original.dummy;
         values = new V[cap];
 
         for (int i = 0; i < cap; i++) {
