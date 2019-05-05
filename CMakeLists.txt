@@ -22,5 +22,6 @@ add_executable(A6-MyRPNCalculator src/Assignments/Assignment6/MyRPNCalculator.cp
 add_executable(A7-Simulation src/Assignments/Assignment7/Simulation.cpp src/Assignments/Assignment7/Queue.h)
 add_executable(A7-Queue.TestDriver src/Assignments/Assignment7/Queue.TestDriver.cpp src/Assignments/Assignment7/Queue.h)
 add_executable(A8-Assignment8Part1 src/Assignments/Assignment8/Assignment8Part1.cpp)
-add_executable(A8-Assignment8Part2 src/Assignments/Assignment8/Assignment8Part2.cpp)
-add_executable(A8-Assignment8Part3 src/Assignments/Assignment8/Assignment8Part3.cpp)
+add_executable(A8-Assignment8Part2 src/Assignments/Assignment8/Assignment8Part2.cpp src/Assignments/Assignment8/DynamicArray.h)
+add_executable(A8-Assignment8Part3 src/Assignments/Assignment8/Assignment8Part3.cpp src/Assignments/Assignment8/DynamicArray.h)
+add_executable(A9-DvcSchedule3 src/Assignments/Assignment9/DvcSchedule3.cpp src/Assignments/Assignment9/AssociativeArray.h src/Assignments/Assignment9/DynamicArray.h)

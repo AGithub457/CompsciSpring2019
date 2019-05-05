@@ -18,7 +18,7 @@ int main() {
     string row, semester, year, term, section, course, courseCode;
     int n = 8000;
 
-    for(int i = 0; i < 4; i++) {
+    for(int i = 0; i < 4; i++, n *= 2) {
         clock_t startTime = clock();
         fin.open("dvc-schedule.txt");
         getline(fin, row);
@@ -30,7 +30,6 @@ int main() {
         clock_t endTime = clock();
         double elapsedSeconds = (double) (endTime - startTime) / CLOCKS_PER_SEC;
         cout << elapsedSeconds << " (expected) for n=" << n << endl;
-        n *= 2;
     }
 
     return 0;
